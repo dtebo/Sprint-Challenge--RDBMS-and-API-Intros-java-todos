@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "todos")
-public class Todo {
+public class Todos {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
@@ -20,12 +20,17 @@ public class Todo {
                 nullable = false)
     private User user;
 
-    public Todo() {
+    public Todos() {
     }
 
-    public Todo(String description, boolean completed, User user) {
+    public Todos(String description, boolean completed, User user) {
         this.description = description;
         this.completed = completed;
+        this.user = user;
+    }
+
+    public Todos(User user, String description) {
+        this.description = description;
         this.user = user;
     }
 
