@@ -9,5 +9,5 @@ public interface TodosService {
     List<Todos> findAll();
     Todos findTodoById(long id);
     void delete(long id);
-    Todos save(Todos todo);
+    Todos save(Todos todos);
 }

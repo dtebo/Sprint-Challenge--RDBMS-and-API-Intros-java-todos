@@ -1748,9 +1748,32 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Can you explain your data model, data schema to me?
+
+A. Below is my data model/schema
+
+    Todos:
+        todoid - long, not null
+        completed - boolean, default value is false
+        description - string, not null
+    
+    User:
+        userid - long, not null
+        username - string, not null, unique
+        password - String, not null
+        primaryemail - string, not null, unique
+        todos - one to many relationship, cascade all, remove orphaned records
+
 2. Can you explain how you connected your API to a database?
+
+A. I connected my API to my database using my controllers which access service methods, which in turn access repository methods to manipulate data using CRUD (Create, Read, Update, Delete) operations.
+
 3. Can you explain the flow of data from client through the backend system and back to the client?
+
+A. A request comes in through a specific API endpoint, which in turn calls the required service, which calls the repository to return or update the specified data.
+
 4. How did you handle querying in your application: custom querying vs JPA Querying?
+
+A. I made use of JPA querying by specifiying the correct method names in my services.
 
 ## Instructions
 
@@ -1785,11 +1808,11 @@ You will be creating a REST api service to store and read data from an H2 databa
 
 The following end points are already available in the initial application. You are to make sure the end points work with the newly added todos table
 
-- [ ] GET /users/users - return all of the users and their todos.
+- [x] GET /users/users - return all of the users and their todos.
 
-- [ ] GET /users/user/{userid} - return the user and their todos based off of user id.
+- [x] GET /users/user/{userid} - return the user and their todos based off of user id.
 
-- [ ] POST /users/user - adds a user with their todos
+- [x] POST /users/user - adds a user with their todos
 
   You can use the following to test this!
 
@@ -1809,17 +1832,17 @@ The following end points are already available in the initial application. You a
   }
   ```
 
-- [ ] PATCH /todos/todo/{todoid} - mark a todo as completed.
+- [x] PATCH /todos/todo/{todoid} - mark a todo as completed.
 
-- [ ] DELETE /users/user/{userid} - Deletes a user based off of their userid and deletes all their associated todos.
+- [x] DELETE /users/user/{userid} - Deletes a user based off of their userid and deletes all their associated todos.
 
 ### Required best practices
 
-- [ ] Consistent naming. Examples: variables, functions, Components, and file/folder organization.
-- [ ] Consistent spacing. Examples: line breaks, around arguments and before/after functions.
-- [ ] Consistent quotation usage.
-- [ ] Spell-check.
-- [ ] Schedule time to review, refine and reassess your work.
+- [x] Consistent naming. Examples: variables, functions, Components, and file/folder organization.
+- [x] Consistent spacing. Examples: line breaks, around arguments and before/after functions.
+- [x] Consistent quotation usage.
+- [x] Spell-check.
+- [x] Schedule time to review, refine and reassess your work.
 
 It is better to submit a challenge that meets [MVP](https://en.wikipedia.org/wiki/Minimum_viable_product) than one that attempts too much and fails.
 

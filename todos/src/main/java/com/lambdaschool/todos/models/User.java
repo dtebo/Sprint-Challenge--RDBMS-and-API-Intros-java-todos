@@ -1,5 +1,6 @@
 package com.lambdaschool.todos.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
@@ -45,6 +46,7 @@ public class User extends Auditable {
     @OneToMany(mappedBy = "user",
                cascade = CascadeType.ALL,
                orphanRemoval = true)
+    @JsonIgnoreProperties(value = "user", allowSetters = true)
     private List<Todos> todos = new ArrayList<>();
 
     /**

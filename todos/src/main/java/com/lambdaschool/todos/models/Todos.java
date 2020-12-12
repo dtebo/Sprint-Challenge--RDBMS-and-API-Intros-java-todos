@@ -1,10 +1,15 @@
 package com.lambdaschool.todos.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jdk.jfr.BooleanFlag;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.bind.DefaultValue;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "todos")
-public class Todos {
+public class Todos extends Auditable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
@@ -13,20 +18,15 @@ public class Todos {
     @Column(nullable = false)
     private String description;
 
-    private boolean completed;
+    private boolean completed = false;
 
     @ManyToOne
     @JoinColumn(name = "userid",
                 nullable = false)
+    @JsonIgnoreProperties(value = "todos", allowSetters = true)
     private User user;
 
     public Todos() {
-    }
-
-    public Todos(String description, boolean completed, User user) {
-        this.description = description;
-        this.completed = completed;
-        this.user = user;
     }
 
     public Todos(User user, String description) {
